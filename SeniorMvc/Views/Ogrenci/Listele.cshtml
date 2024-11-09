@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SeniorMvc.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Listele";
+}
+
+<h2>Listele</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ogrenci Ekle", "Yeni")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoyAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TcKimlikNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BolumAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GirisYil)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoyAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TcKimlikNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BolumAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GirisYil)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenleme", "Duzenle", new {  id=item.Id  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.Id  }) |
+            @Html.ActionLink("Sil", "Sil", new {  id=item.Id  })
+        </td>
+    </tr>
+}
+
+</table>

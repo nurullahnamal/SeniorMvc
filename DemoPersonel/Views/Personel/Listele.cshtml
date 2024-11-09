@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DemoPersonel.Models.Personel>
+
+@{
+    ViewBag.Title = "Listele";
+}
+
+<h2>Listele</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Isim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoyIsim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TcKimlikNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DogumYili)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoyIsim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TcKimlikNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DogumYili)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Duzenle", new {  id=item.Id  }) |
+            @Html.ActionLink("Ekle", "Ekle", new {  id=item.Id  }) |
+            @Html.ActionLink("Sil", "sil", new {  id=item.Id  })
+        </td>
+    </tr>
+}
+
+</table>
